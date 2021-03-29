@@ -1,0 +1,9 @@
+# Ignore IDEs
+.idea
+
+# Ignore folders
+node_modules/
+
+# Ignore files
+**/*.DS_Store
+**/*.tgz
