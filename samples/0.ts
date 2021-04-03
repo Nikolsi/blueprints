@@ -13,7 +13,6 @@ function run() {
   node.setName(`Node ${node.id}`)
   node.input.set('age', 50)
   console.log(node.toString())
-  console.log(node.input)
 }
 
 run()

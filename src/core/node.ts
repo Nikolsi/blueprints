@@ -47,6 +47,6 @@ export class Node<
   }
 
   toString(): string {
-    return `{ id: ${this._id}, name: ${this._name} }`
+    return `{"id":"${this._id}","name":"${this._name}","input":"${this._input.toString()}"}`
   }
 }

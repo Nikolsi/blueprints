@@ -10,4 +10,8 @@ export class SchemaMap<Schema> {
     this._map.clear()
     return this
   }
+
+  toString() {
+    return JSON.stringify(Object.fromEntries(this._map))
+  }
 }
