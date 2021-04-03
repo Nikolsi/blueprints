@@ -1,15 +1,19 @@
 import { Node } from '../src'
 
-function createNode(): Node {
-  const node = new Node()
-  return node.setName(`Node ${node.id}`)
-}
-
 function run() {
-  for (let index = 0; index < 15; index++) {
-    const node = createNode()
-    console.log(node.toString())
+  type PersonSchema = {
+    input: {
+      name: string
+      surname: string
+      age: number
+    }
+    output: {}
   }
+  const node = new Node<PersonSchema>()
+  node.setName(`Node ${node.id}`)
+  node.input.set('age', 50)
+  console.log(node.toString())
+  console.log(node.input)
 }
 
 run()

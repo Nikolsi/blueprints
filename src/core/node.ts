@@ -1,9 +1,20 @@
-import { Vector2 } from './common/interfaces'
+import { IteratableOf } from './common/generics'
+import { SchemaMap } from './common/map'
 
-export class Node {
+export type NodeSchema<Input = unknown, Output = unknown> = {
+  input: IteratableOf<Input>
+  output: IteratableOf<Output>
+}
+
+export class Node<
+  Schema extends NodeSchema,
+  Input = IteratableOf<Schema['input']>,
+  Output = IteratableOf<Schema['output']>
+> {
   private readonly _id: number
   private _name: string = ''
-  private _position: Vector2 = { x: 0, y: 0 }
+  private _input: SchemaMap<Input> = new SchemaMap<Input>()
+  private _output: SchemaMap<Output> = new SchemaMap<Output>()
 
   static uid: number = -1
   static createUniqueId(): number {
@@ -20,6 +31,14 @@ export class Node {
 
   get id(): number {
     return this._id
+  }
+
+  get input(): SchemaMap<Input> {
+    return this._input
+  }
+
+  get output(): SchemaMap<Output> {
+    return this._output
   }
 
   setName(name: string): this {
