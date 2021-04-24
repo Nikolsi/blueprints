@@ -1,17 +1,17 @@
 export class SchemaMap<Schema> {
-  private _map = new Map()
+  private _map: Schema = <Schema>{}
 
   set<Key extends keyof Schema>(key: Key, value: Schema[Key]): this {
-    this._map.set(key, value)
+    this._map[key] = value
     return this
   }
 
   clear(): this {
-    this._map.clear()
+    this._map = <Schema>{}
     return this
   }
 
   toString() {
-    return JSON.stringify(Object.fromEntries(this._map))
+    return JSON.stringify(this._map)
   }
 }
