@@ -1,1 +1,1 @@
-const foo = 'sss'
+export * from './core'
