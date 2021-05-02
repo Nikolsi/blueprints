@@ -46,6 +46,13 @@ export class Node<
     return this
   }
 
+  dispose(): this {
+    this._input.clear()
+    this._output.clear()
+    // TODO: dispose connection
+    return this
+  }
+
   toString(): string {
     return `{"id":"${this._id}","name":"${this._name}","input":"${this._input.toString()}"}`
   }
